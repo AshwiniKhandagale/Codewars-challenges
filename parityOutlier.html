@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+           <script>
+            //High complexity
+            function findOutlier(integers) {
+                var newArr = [];
+                var newArr1 = [];
+                integers.forEach(function (element) {
+
+                    if (element % 2 == 0) {
+                        newArr.push(element);//Get even number arr
+                    } else {
+                        newArr1.push(element);//Get Odd number arr
+                    }
+                })
+                if (newArr.length > newArr1.length) {
+                    return newArr1;
+                } else {
+                    return newArr;
+                }
+
+            }
+            document.write(findOutlier([0, 1, 2]));
+            document.write("\n")
+            document.write(findOutlier([1, 2, 3]));
+            document.write("\n")
+            document.write(findOutlier([2, 6, 8, 10, 3]));
+            document.write("\n")
+             document.write(findOutlier([0, 0, 3, 0, 0]))
+             document.write("\n")
+            console.log(findOutlier([1, 1, 0, 1, 1]))
+            console.log(findOutlier([0, 1, 2]));
+            console.log(findOutlier([1, 2, 3]));
+            console.log(findOutlier([2, 6, 8, 10, 3]))
+            console.log(findOutlier([0, 0, 3, 0, 0]))
+            console.log(findOutlier([1, 1, 0, 1, 1]))
+        </script>
+        <script>
+            function findInt(arg){
+                //filter the even number
+                var even=arg.filter(function(a){
+                    if(a%2 == 0)
+                    return a
+                })
+                 //filter the odd number
+                var odd=arg.filter(function(b){
+                     if(b%2 != 0)
+                     return b;
+                })
+                 return even.length == 1 ? even[0] : odd[0] 
+            }
+            console.log(findInt([2, 6, 8, 10, 3]));
+            document.write("\n");
+            document.write("\n");
+            document.write("\n");
+            document.write(findInt([2, 6, 8, 10, 3]));
+        </script>
+</body>
+
+</html>
