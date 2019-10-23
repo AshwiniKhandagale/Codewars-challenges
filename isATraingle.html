@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+    <p>
+        Implement a method that accepts 3 integer values a, b, c. The method should return true if a triangle can be
+        built with the sides of given length and false in any other case.
+    </p>
+    <script>
+        function isTriangle(a, b, c) {
+            if ((a + b) > c && (a + c) > b && (c + b) > a) {
+              return true;
+            }
+            else {
+             return false;
+            }
+        }
+        document.write((isTriangle(1,2,2)));
+        document.write("\n\n\n\n");
+        
+        document.write((isTriangle(7,2,2)));
+    </script>
+
+</body>
+
+</html>
