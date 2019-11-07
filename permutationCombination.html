@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+    <p>
+        Assume any array of integers ,we need to apply a series of commands to this array to get the final output.
+
+        Example:
+
+        inputArray = [1,2,3,5,6,7]
+
+        commandArray = [‘even’, ‘max’]
+
+        Expected output = [‘6’] // there are 2 commands ‘even’ and ‘max’ in commadArray, logic should apply first
+        command ‘even’ which will result in [2 , 6] then max which will finally return 6.
+
+        Support these commands
+
+        - even
+
+        - odd
+
+        - min
+
+        - max
+
+        - sum
+
+
+
+        If there is no possible output for a chain of commands ( for example [‘even’,’odd’] ) then return empty array
+    </p>
+    <table>
+        <tr>
+            <td>Enter the InputArray</td>
+            <td><input type="number" id="inputtext" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="button" id="add" onclick="addInputArr();">Add </button>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter the Command
+            <td><input type="text" id="cmd" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="button" id="add" onclick="addcmdInArr();">Add </button>
+            </td>
+        </tr>
+    </table>
+
+    <div id='values'></div>
+    <div id='command'></div>
+    <button onclick="performLogic()">Show Result</button>
+    <div id='result'></div>
+    <script>
+
+        inputArr = [];
+        commandArray = [];
+        function addcmdInArr() {
+            var command = document.getElementById('cmd');
+            commandArray.push(command.value);
+            document.getElementById("command").innerHTML = commandArray.join(", ");
+            command.value = "";
+        }
+        function addInputArr() {
+            var inp = document.getElementById('inputtext');
+            inputArr.push(inp.value);
+            document.getElementById("values").innerHTML = inputArr.join(", ");
+            inp.value = "";
+        }
+        function performLogic() {
+            commandArray.forEach(element => {
+                switch (element) {
+                    case 'even':
+                        inputArr = inputArr.reduce(function (arr, num) {
+                            if (num % 2 == 0)
+                                arr.push(num);
+                            return arr;
+                        }, []);
+
+                        break;
+                    case 'odd':
+                        inputArr = inputArr.reduce(function (arr, num) {
+                            if (num % 2 != 0)
+                                arr.push(num);
+                            return arr;
+                        }, []);
+
+                        break;
+                    case 'max':
+                        if (inputArr.length > 1) {
+                            inputArr = Math.max.apply(null, inputArr);
+                        } else {
+                            inputArr = [];
+                        }
+                        break;
+                    case 'min':
+                        if (inputArr.length > 1) {
+                            inputArr = Math.min.apply(null, inputArr);
+                        } else
+                            inputArr = [];
+                        break;
+                    case 'sum':
+                     var add;
+                     var newArr;
+                        if (inputArr.length > 1) {
+                            inputArr = inputArr.reduce(function (total, amount) {
+                                 add=total + amount;
+                                 newArr.push(add);
+                                return newArr;
+                            });
+                        } else
+                            inputArr = [];
+                        break
+                    default:
+                        break;
+                }
+
+            });
+            console.log(inputArr);
+            document.getElementById("result").innerHTML=inputArr;
+            return inputArr;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
