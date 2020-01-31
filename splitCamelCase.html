@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<style></style>
+
+<body>
+    <script>
+
+function solution(string) {
+    var reg = /([a-z0-9])([A-Z])/g;
+    var newArr = string.replace(reg, '$1 $2');
+    return newArr.split(' ').join(" ");
+}
+solution('camelCasing') 
+</script>
+</body>
+
+</html>
