@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+    <p>
+        Merge two array of object , remove duplicates from array and sort  the array of objeect base on their id
+    </p>
+    <script>
+       function mergeArrays(x, y){
+    
+    var newArr=[];
+    x.forEach(function(element){
+       newArr.push(element.id);  
+    });
+    y.forEach(function(element){
+     
+       newArr.push(element.id);  
+    });
+    var newArr1=[...new Set(newArr)];
+    console.log('newArr1: ', newArr1);
+    var sortArr=newArr1.sort();
+    console.log('sortArr: ', sortArr);
+    var resultArr=[]
+    sortArr.forEach(function(element){
+       resultArr.push({
+           id:element
+       });  
+    });
+    console.log(resultArr);
+     return resultArr;
+  
+  }
+  var x=[{id:1}, {id:8}, {id:9}];
+  var y=[{id:1}, {id:4}, {id:7}]
+  mergeArrays(x, y)
+    </script>
+
+</body>
+
+</html>
